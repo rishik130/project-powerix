@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Powerix PowerShop</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --green-200:#97C459;
+  --green-600:#3B6D11;
+  --green-900:#173404;
+  --bg:#FAFAF8;
+  --surface:#fff;
+  --text-primary:#1A1A18;
+  --text-secondary:#5F5E5A;
+  --border:rgba(55,55,50,.12);
+}
+
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text-primary)}
+
+/* HEADER */
+header{
+  background:var(--green-900);
+  padding:0 2rem;
+  position:sticky;top:0;z-index:10;
+}
+.header-inner{
+  max-width:1100px;margin:auto;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.logo{
+  font-family:'Syne';font-weight:700;font-size:22px;color:#fff;
+  text-decoration:none;display:flex;gap:10px;align-items:center;
+}
+.logo-icon{
+  width:32px;height:32px;background:var(--green-200);
+  border-radius:8px;display:flex;align-items:center;justify-content:center;
+}
+
+/* HERO */
+.hero{
+  background:var(--green-900);
+  color:#fff;padding:80px 20px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(
+    0deg,transparent,transparent 39px,rgba(255,255,255,.03) 39px,rgba(255,255,255,.03) 40px),
+  repeating-linear-gradient(
+    90deg,transparent,transparent 39px,rgba(255,255,255,.03) 39px,rgba(255,255,255,.03) 40px);
+}
+.hero-inner{position:relative;max-width:760px;margin:auto}
+.hero h1{
+  font-family:'Syne';font-size:48px;margin-bottom:20px;letter-spacing:-1px;
+}
+.hero p{opacity:.7}
+
+/* STORE SECTION */
+.section{
+  max-width:1100px;margin:auto;padding:70px 20px;
+}
+.cards{
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;
+}
+
+/* CARD */
+.card{
+  background:var(--surface);
+  border-radius:16px;
+  border:1px solid var(--border);
+  padding:40px;
+  text-align:center;
+  transition:.25s;
+}
+.card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.08)}
+.card h2{
+  font-family:'Syne';font-size:28px;margin-bottom:12px;
+}
+.card p{color:var(--text-secondary);margin-bottom:25px}
+.btn{
+  display:inline-block;padding:12px 26px;
+  background:var(--green-600);color:#fff;
+  border-radius:8px;text-decoration:none;font-weight:500;
+}
+.btn:hover{opacity:.9}
+
+/* FOOTER */
+footer{
+  background:#2C2C2A;color:#aaa;text-align:center;
+  padding:26px;margin-top:80px;font-size:13px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .cards{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">⚡</div>
+      Powerix
+    </a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Powerix PowerShop</h1>
+    <p>Select the store tailored for renewable energy generators or power consumers.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="cards">
+
+    <div class="card">
+      <h2>Generator Store</h2>
+      <p>Sell renewable energy, connect with buyers and manage open access opportunities.</p>
+      <a href="#" class="btn">Enter Generator Store</a>
+    </div>
+
+    <div class="card">
+      <h2>Consumer Store</h2>
+      <p>Purchase green power, explore PPAs and transition your business to renewable energy.</p>
+      <a href="#" class="btn">Enter Consumer Store</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+© 2026 Powerix Energy Services Private Limited
+</footer>
+
+</body>
+</html>
