@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PoweriX – Welcome to Powerix Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --nav-bg: #1c2e12;
+      --hero-bg: #0f1f08;
+      --green: #3db54a;
+      --green-dark: #2a8a35;
+      --cream: #f4f1eb;
+      --cream-dark: #ebe7df;
+      --white: #ffffff;
+      --dark: #0f1f08;
+      --text: #2a2a2a;
+      --muted: #6b7a62;
+      --border: #dde8d5;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); min-height: 100vh; }
+
+    nav {
+      background: var(--nav-bg); display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 60px; position: sticky; top: 0; z-index: 100;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-icon { width: 36px; height: 36px; background: var(--green); border-radius: 8px; display: grid; place-items: center; }
+    .nav-logo-icon svg { width: 20px; height: 20px; }
+    .nav-logo-wrap { display: flex; flex-direction: column; line-height: 1; }
+    .nav-logo-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.15rem; color: var(--white); }
+    .nav-logo-sub { font-size: 0.6rem; color: rgba(255,255,255,0.35); }
+    .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+    .nav-links a { font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--green); }
+    .nav-cta { background: var(--green) !important; color: white !important; padding: 8px 18px; border-radius: 5px; }
+
+    /* HERO */
+    .hero {
+      background: var(--hero-bg); padding: 72px 48px 64px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 60% 40%, rgba(61,181,74,0.08) 0%, transparent 65%);
+    }
+    .hero-inner { position: relative; z-index: 1; text-align: center; max-width: 700px; margin: 0 auto; }
+    .hero-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 16px; }
+    .hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(2.4rem,4vw,3.8rem); font-weight: 800; color: var(--white); line-height: 1.05; margin-bottom: 16px; }
+    .hero h1 span { color: var(--green); }
+    .hero p { font-size: 0.95rem; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 500px; margin: 0 auto; }
+
+    /* STORE SELECTION */
+    .store-section { padding: 64px 48px 80px; }
+    .store-inner { max-width: 960px; margin: 0 auto; }
+    .section-label {
+      display: flex; align-items: center; gap: 10px; justify-content: center;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--green); margin-bottom: 10px;
+    }
+    .section-label::before { content: ''; width: 22px; height: 2px; background: var(--green); }
+    .section-label::after { content: ''; width: 22px; height: 2px; background: var(--green); }
+    .store-heading {
+      font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800;
+      color: var(--dark); text-align: center; margin-bottom: 8px;
+    }
+    .store-subheading {
+      text-align: center; font-size: 0.92rem; color: var(--muted);
+      max-width: 480px; margin: 0 auto 48px; line-height: 1.6;
+    }
+
+    .store-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+    .store-card {
+      background: var(--white); border-radius: 16px;
+      border: 1.5px solid var(--border); overflow: hidden;
+      box-shadow: 0 4px 20px rgba(15,31,8,0.06);
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      cursor: pointer; text-decoration: none; display: flex; flex-direction: column;
+    }
+    .store-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(61,181,74,0.14);
+      border-color: var(--green);
+    }
+    .store-card-top {
+      background: var(--hero-bg); padding: 48px 32px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .store-card-top::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(61,181,74,0.1) 0%, transparent 70%);
+    }
+    .store-card-top .store-emoji { font-size: 4rem; position: relative; z-index: 1; }
+    .store-card-body { padding: 28px 28px 32px; flex: 1; display: flex; flex-direction: column; }
+    .store-card-body h2 { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--dark); margin-bottom: 6px; }
+    .store-tagline { font-size: 0.8rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+    .store-features { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; flex: 1; }
+    .store-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.85rem; color: var(--text); line-height: 1.5; }
+    .store-features li::before { content: '▸'; color: var(--green); flex-shrink: 0; margin-top: 1px; }
+    .store-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      border: 2px solid var(--green); color: var(--dark);
+      font-family: 'Syne', sans-serif; font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+      padding: 12px 20px; border-radius: 8px; transition: all 0.2s;
+      background: transparent;
+    }
+    .store-card:hover .store-btn { background: var(--green); color: white; }
+
+    /* WHY */
+    .why-section { background: var(--hero-bg); padding: 64px 48px; }
+    .why-inner { max-width: 1100px; margin: 0 auto; }
+    .why-section .section-label { justify-content: flex-start; color: var(--green); }
+    .why-section .section-label::after { display: none; }
+    .why-title { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--white); margin-bottom: 36px; }
+    .why-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 14px; }
+    .why-item {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px; padding: 22px 14px; text-align: center;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .why-item:hover { background: rgba(61,181,74,0.1); border-color: rgba(61,181,74,0.3); transform: translateY(-4px); }
+    .why-icon { width: 48px; height: 48px; border-radius: 50%; background: rgba(61,181,74,0.12); border: 2px solid rgba(61,181,74,0.25); display: grid; place-items: center; font-size: 1.3rem; margin: 0 auto 12px; }
+    .why-item p { font-size: 0.78rem; color: rgba(255,255,255,0.55); line-height: 1.5; }
+
+    footer { background: var(--dark); padding: 40px 48px 20px; }
+    .footer-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 40px; margin-bottom: 32px; }
+    .footer-brand p { font-size: 0.8rem; color: rgba(255,255,255,0.3); line-height: 1.7; max-width: 260px; margin-top: 12px; }
+    .footer-col h4 { font-family: 'Syne', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--green); margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { font-size: 0.8rem; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--green); }
+    .contact-item { display: flex; align-items: center; gap: 10px; font-size: 0.82rem; color: rgba(255,255,255,0.35); margin-bottom: 10px; }
+    .contact-dot { width: 28px; height: 28px; background: var(--green); border-radius: 50%; display: grid; place-items: center; flex-shrink: 0; font-size: 0.7rem; }
+    .footer-bottom { max-width: 1280px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.07); padding-top: 18px; display: flex; justify-content: space-between; font-size: 0.72rem; color: rgba(255,255,255,0.25); }
+    .footer-bottom span { color: var(--green); }
+
+    .wa-wrap { position: fixed; bottom: 28px; right: 28px; z-index: 999; display: flex; align-items: center; }
+    .wa-label { background: white; border-radius: 24px 0 0 24px; padding: 10px 16px; font-size: 0.78rem; font-weight: 500; color: var(--dark); box-shadow: 0 4px 20px rgba(0,0,0,0.12); border: 1px solid rgba(0,0,0,0.06); }
+    .wa-btn { width: 52px; height: 52px; background: #25D366; border-radius: 0 50% 50% 0; display: grid; place-items: center; text-decoration: none; transition: transform 0.2s; }
+    .wa-btn:hover { transform: scale(1.08); }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .hero { padding: 48px 20px; }
+      .store-section { padding: 40px 20px; }
+      .store-grid { grid-template-columns: 1fr; }
+      .why-section { padding: 48px 20px; }
+      .why-grid { grid-template-columns: repeat(2,1fr); }
+      footer { padding: 40px 20px 20px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .wa-label { display: none; }
+      .wa-btn { border-radius: 50%; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+    <div class="nav-logo-wrap"><span class="nav-logo-name">PoweriX</span><span class="nav-logo-sub">Energy Services Pvt. Ltd.</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#">Powerix Services</a></li>
+    <li><a href="#">News &amp; Updates</a></li>
+    <li><a href="#">Contact Us</a></li>
+    <li><a href="#" class="nav-cta">Consult With Expert</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Welcome</div>
+    <h1>Welcome To <span>Powerix</span> Store</h1>
+    <p>Powerix PowerShop is designed to cater to both renewable energy generators and consumers. Select the store that fits your needs.</p>
+  </div>
+</section>
+
+<section class="store-section">
+  <div class="store-inner">
+    <div class="section-label">Choose Your Store</div>
+    <h2 class="store-heading">Select What Fits You</h2>
+    <p class="store-subheading">Whether you generate or consume renewable energy, Powerix has a dedicated store with end-to-end solutions tailored for you.</p>
+
+    <div class="store-grid">
+      <a class="store-card" href="#">
+        <div class="store-card-top">
+          <span class="store-emoji">⚡</span>
+        </div>
+        <div class="store-card-body">
+          <h2>Generator Store</h2>
+          <div class="store-tagline">Powering Renewable Energy Projects</div>
+          <ul class="store-features">
+            <li>Power Purchase Agreements (PPAs) for group captive &amp; 3rd party</li>
+            <li>Government &amp; grid connectivity approvals support</li>
+            <li>Transaction management &amp; payment recovery</li>
+            <li>Carbon credit advisory &amp; monetization</li>
+          </ul>
+          <div class="store-btn">View Generator Store →</div>
+        </div>
+      </a>
+
+      <a class="store-card" href="#">
+        <div class="store-card-top">
+          <span class="store-emoji">🏭</span>
+        </div>
+        <div class="store-card-body">
+          <h2>Customer Store</h2>
+          <div class="store-tagline">Helping Businesses Go Green</div>
+          <ul class="store-features">
+            <li>Open access power procurement for businesses</li>
+            <li>Rooftop solar &amp; BESS (OPEX &amp; CAPEX) solutions</li>
+            <li>Net Zero &amp; RE 100 strategy support</li>
+            <li>Compliance &amp; regulatory assistance</li>
+          </ul>
+          <div class="store-btn">View Customer Store →</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="why-section">
+  <div class="why-inner">
+    <div class="section-label">Our Advantage</div>
+    <h2 class="why-title">Why Choose PoweriX?</h2>
+    <div class="why-grid">
+      <div class="why-item"><div class="why-icon">🌱</div><p>Expert Guidance from Renewable Energy Specialists</p></div>
+      <div class="why-item"><div class="why-icon">📄</div><p>End-to-End Solutions for Open Access &amp; PPA Structuring</p></div>
+      <div class="why-item"><div class="why-icon">🏛️</div><p>Hassle-Free Approvals &amp; Compliance Support</p></div>
+      <div class="why-item"><div class="why-icon">⚡</div><p>Optimised Energy Transactions &amp; Settlements</p></div>
+      <div class="why-item"><div class="why-icon">🌍</div><p>Access to Carbon Credit Trading &amp; Offsetting</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo"><div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="nav-logo-wrap"><span class="nav-logo-name">PoweriX</span><span class="nav-logo-sub">Energy Services Pvt. Ltd.</span></div></div>
+      <p>Powerix Energy Services provides end-to-end renewable energy consulting, regulatory approvals, investment advisory, and transaction management.</p>
+    </div>
+    <div class="footer-col"><h4>Navigation</h4><ul><li><a href="#">News &amp; Updates</a></li><li><a href="#">Contact Us</a></li></ul></div>
+    <div class="footer-col"><h4>Services</h4><ul><li><a href="#">Generator Store</a></li><li><a href="#">Customer Store</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4>
+      <div class="contact-item"><div class="contact-dot">📞</div>+91 9000920333</div>
+      <div class="contact-item"><div class="contact-dot">✉️</div>info@powerix.in</div>
+      <div class="contact-item"><div class="contact-dot">📍</div>Bengaluru, Karnataka 560080</div>
+    </div>
+  </div>
+  <div class="footer-bottom"><span>Copyright © <span>PoweriX</span> 2025 | All Rights Reserved</span><span>Designed &amp; Developed by Digital Brain</span></div>
+</footer>
+
+<div class="wa-wrap">
+  <div class="wa-label">Need Help? <strong>Chat with us</strong></div>
+  <a class="wa-btn" href="https://wa.me/919000920333" target="_blank"><svg width="26" height="26" viewBox="0 0 32 32" fill="white"><path d="M16 2C8.268 2 2 8.268 2 16c0 2.478.677 4.797 1.854 6.787L2 30l7.404-1.822A13.94 13.94 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2z"/></svg></a>
+</div>
+</body>
+</html>

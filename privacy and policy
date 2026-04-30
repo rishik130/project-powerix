@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – Powerix</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --nav-bg: #1c2e12;
+      --hero-bg: #0f1f08;
+      --green: #3db54a;
+      --green-dark: #2a8a35;
+      --cream: #f4f1eb;
+      --cream-dark: #ebe7df;
+      --white: #ffffff;
+      --dark: #0f1f08;
+      --text: #2a2a2a;
+      --muted: #6b7a62;
+      --border: #dde8d5;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); font-size: 15px; line-height: 1.75; }
+
+    nav {
+      background: var(--nav-bg); display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 60px; position: sticky; top: 0; z-index: 100;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-icon { width: 36px; height: 36px; background: var(--green); border-radius: 8px; display: grid; place-items: center; }
+    .nav-logo-icon svg { width: 20px; height: 20px; }
+    .nav-logo-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.15rem; color: var(--white); }
+    .nav-right { font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+
+    .hero {
+      background: var(--hero-bg); padding: 72px 48px 64px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 80% 50%, rgba(61,181,74,0.07) 0%, transparent 65%);
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: 860px; }
+    .hero-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: 'Syne', sans-serif; font-size: clamp(2.4rem,4vw,3.8rem);
+      font-weight: 800; color: var(--white); line-height: 1.05; margin-bottom: 20px;
+    }
+    .hero h1 span { color: var(--green); }
+    .hero p { font-size: 0.95rem; color: rgba(255,255,255,0.45); max-width: 540px; line-height: 1.7; margin-bottom: 28px; }
+    .hero-meta { display: flex; gap: 28px; flex-wrap: wrap; }
+    .hero-meta-item { font-size: 0.78rem; color: rgba(255,255,255,0.4); }
+    .hero-meta-item strong { color: var(--green); font-weight: 600; }
+
+    .page-wrap {
+      max-width: 1200px; margin: 48px auto 64px;
+      padding: 0 32px; display: grid;
+      grid-template-columns: 240px 1fr; gap: 32px; align-items: start;
+    }
+
+    .toc {
+      position: sticky; top: 80px; background: var(--white);
+      border: 1px solid var(--border); border-radius: 10px; padding: 22px 18px;
+      box-shadow: 0 2px 12px rgba(15,31,8,0.05);
+    }
+    .toc-title {
+      font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted);
+      margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border);
+    }
+    .toc ul { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .toc ul li a {
+      display: flex; align-items: center; gap: 8px; text-decoration: none;
+      color: var(--muted); font-size: 0.8rem; padding: 6px 8px; border-radius: 6px;
+      transition: background 0.15s, color 0.15s; line-height: 1.3;
+    }
+    .toc ul li a:hover { background: rgba(61,181,74,0.08); color: var(--green-dark); }
+    .toc-num { font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700; color: var(--green); min-width: 18px; }
+    .toc-updated { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border); font-size: 0.72rem; color: var(--muted); }
+    .toc-updated strong { color: var(--text); display: block; margin-bottom: 2px; }
+
+    .policy-content {
+      background: var(--white); border: 1px solid var(--border); border-radius: 10px;
+      padding: 40px 44px; box-shadow: 0 2px 12px rgba(15,31,8,0.05);
+    }
+    .policy-intro {
+      background: linear-gradient(135deg,rgba(61,181,74,0.06),rgba(27,207,192,0.06));
+      border: 1px solid rgba(61,181,74,0.15); border-left: 4px solid var(--green);
+      border-radius: 0 8px 8px 0; padding: 18px 20px; margin-bottom: 36px;
+      font-size: 0.88rem; color: var(--muted); line-height: 1.7;
+    }
+    .policy-intro strong { color: var(--dark); }
+    .policy-section { margin-bottom: 40px; }
+    .section-header {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 14px;
+      padding-bottom: 12px; border-bottom: 1px solid var(--border);
+    }
+    .section-num {
+      display: grid; place-items: center; width: 32px; height: 32px; flex-shrink: 0;
+      background: var(--green); color: white; font-family: 'Syne', sans-serif;
+      font-size: 0.82rem; font-weight: 700; border-radius: 6px;
+    }
+    .section-icon { font-size: 1.1rem; }
+    .policy-section h2 { font-family: 'Syne', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--dark); }
+    .policy-section p { font-size: 0.9rem; color: var(--text); margin-bottom: 12px; line-height: 1.75; }
+    .policy-section p:last-child { margin-bottom: 0; }
+    .policy-section ul { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; padding: 0; }
+    .policy-section ul li { display: flex; gap: 10px; font-size: 0.88rem; color: var(--text); line-height: 1.6; }
+    .policy-section ul li::before { content: '▸'; color: var(--green); font-size: 0.75rem; flex-shrink: 0; margin-top: 3px; }
+    .policy-section ol { list-style: none; counter-reset: ol-c; display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; padding: 0; }
+    .policy-section ol li { counter-increment: ol-c; display: flex; gap: 10px; font-size: 0.88rem; color: var(--text); line-height: 1.6; }
+    .policy-section ol li::before {
+      content: counter(ol-c); background: rgba(61,181,74,0.1); color: var(--green-dark);
+      font-family: 'Syne', sans-serif; font-size: 0.7rem; font-weight: 700;
+      min-width: 20px; height: 20px; display: grid; place-items: center; border-radius: 4px; flex-shrink: 0; margin-top: 2px;
+    }
+    .policy-section strong { color: var(--dark); font-weight: 600; }
+    .info-box {
+      background: rgba(61,181,74,0.06); border: 1px solid rgba(61,181,74,0.15);
+      border-radius: 8px; padding: 14px 18px; margin: 14px 0;
+      font-size: 0.86rem; color: var(--muted); line-height: 1.65;
+    }
+    .info-box strong { color: var(--dark); }
+    .policy-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.84rem; }
+    .policy-table thead tr { background: var(--hero-bg); color: white; }
+    .policy-table thead th { padding: 10px 14px; text-align: left; font-family: 'Syne', sans-serif; font-weight: 600; font-size: 0.8rem; }
+    .policy-table tbody tr { border-bottom: 1px solid var(--border); }
+    .policy-table tbody tr:hover { background: rgba(61,181,74,0.04); }
+    .policy-table tbody td { padding: 10px 14px; color: var(--text); vertical-align: top; }
+    .policy-table tbody td:first-child { font-weight: 500; color: var(--dark); }
+    .contact-card {
+      background: var(--hero-bg); border-radius: 10px; padding: 24px; color: white;
+      margin-top: 16px; border: 1px solid rgba(61,181,74,0.2);
+    }
+    .contact-card h4 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: var(--green); margin-bottom: 14px; }
+    .contact-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; font-size: 0.85rem; color: rgba(255,255,255,0.65); }
+    .contact-row svg { flex-shrink: 0; margin-top: 2px; }
+    .contact-row a { color: var(--green); text-decoration: none; }
+    .section-divider { border: none; border-top: 1px solid var(--border); margin: 0 0 40px; }
+
+    footer { background: var(--dark); color: rgba(255,255,255,0.3); text-align: center; padding: 20px; font-size: 0.75rem; }
+    footer span { color: var(--green); }
+
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 999;
+      width: 54px; height: 54px; background: #25D366; border-radius: 50%;
+      display: grid; place-items: center; text-decoration: none; transition: transform 0.2s;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+    }
+    .wa-float:hover { transform: scale(1.1); }
+
+    @media (max-width: 860px) {
+      .page-wrap { grid-template-columns: 1fr; }
+      .toc { position: static; }
+      .policy-content { padding: 24px 20px; }
+      .hero { padding: 48px 20px; }
+      nav { padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+    <span class="nav-logo-name">Powerix</span>
+  </a>
+  <span class="nav-right">Renewable Energy Solutions</span>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Legal</div>
+    <h1>Privacy <span>&amp; Policy</span></h1>
+    <p>Your privacy matters to us. This document explains how Powerix collects, uses, and protects your information.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">Effective date: <strong>January 1, 2025</strong></div>
+      <div class="hero-meta-item">Last updated: <strong>April 2026</strong></div>
+      <div class="hero-meta-item">Jurisdiction: <strong>Karnataka, India</strong></div>
+    </div>
+  </div>
+</section>
+
+<div class="page-wrap">
+  <aside class="toc">
+    <p class="toc-title">Contents</p>
+    <ul>
+      <li><a href="#s1"><span class="toc-num">01</span> Introduction</a></li>
+      <li><a href="#s2"><span class="toc-num">02</span> Information We Collect</a></li>
+      <li><a href="#s3"><span class="toc-num">03</span> How We Use It</a></li>
+      <li><a href="#s4"><span class="toc-num">04</span> Sharing of Information</a></li>
+      <li><a href="#s5"><span class="toc-num">05</span> Cookies &amp; Tracking</a></li>
+      <li><a href="#s6"><span class="toc-num">06</span> Data Security</a></li>
+      <li><a href="#s7"><span class="toc-num">07</span> Data Retention</a></li>
+      <li><a href="#s8"><span class="toc-num">08</span> Your Rights</a></li>
+      <li><a href="#s9"><span class="toc-num">09</span> Third-Party Links</a></li>
+      <li><a href="#s10"><span class="toc-num">10</span> Children's Privacy</a></li>
+      <li><a href="#s11"><span class="toc-num">11</span> Changes to Policy</a></li>
+      <li><a href="#s12"><span class="toc-num">12</span> Contact Us</a></li>
+    </ul>
+    <div class="toc-updated"><strong>Effective Date</strong>January 1, 2025</div>
+  </aside>
+
+  <article class="policy-content">
+    <div class="policy-intro"><strong>Your privacy matters to Powerix.</strong> This Privacy Policy explains how Powerix Energy Solutions Pvt. Ltd. collects, uses, stores, and protects information obtained from users of our website and services. By accessing or using our platform, you agree to the practices described in this document.</div>
+
+    <section class="policy-section" id="s1">
+      <div class="section-header"><div class="section-num">01</div><span class="section-icon">📋</span><h2>Introduction</h2></div>
+      <p>Powerix is a renewable energy services company operating in India, specializing in Power Purchase Agreements, grid approvals, transaction management, regulatory compliance, and carbon credit advisory services.</p>
+      <p>This Privacy Policy applies to all information collected through our website (<strong>www.powerix.in</strong>), mobile applications, and any related services, sales, marketing, or events.</p>
+    </section>
+    <hr class="section-divider"/>
+
+    <section class="policy-section" id="s2">
+      <div class="section-header"><div class="section-num">02</div><span class="section-icon">📥</span><h2>Information We Collect</h2></div>
+      <p>We collect information to provide better services to our users and clients:</p>
+      <table class="policy-table">
+        <thead><tr><th>Category</th><th>Examples</th><th>How Collected</th></tr></thead>
+        <tbody>
+          <tr><td>Personal Identification</td><td>Name, email, phone, company name</td><td>Contact forms, registration</td></tr>
+          <tr><td>Business Information</td><td>Project details, energy capacity, site location</td><td>Service onboarding, PPA consultations</td></tr>
+          <tr><td>Technical Data</td><td>IP address, browser type, pages visited</td><td>Automatically via cookies</td></tr>
+          <tr><td>Communication Data</td><td>Emails, chat transcripts, call records</td><td>Direct communication with our team</td></tr>
+          <tr><td>Financial Data</td><td>Bank details, invoice records</td><td>Transaction management services</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <hr class="section-divider"/>
+
+    <section class="policy-section" id="s3">
+      <div class="section-header"><div class="section-num">03</div><span class="section-icon">⚙️</span><h2>How We Use Your Information</h2></div>
+      <ul>
+        <li><strong>Service Delivery:</strong> To provide and manage our renewable energy services including PPA structuring, approval support, and carbon credit advisory.</li>
+        <li><strong>Communication:</strong> To respond to enquiries, send service updates, and consultation confirmations.</li>
+        <li><strong>Compliance:</strong> To meet legal and regulatory obligations under Indian laws including the IT Act, 2000.</li>
+        <li><strong>Improvement:</strong> To analyse usage patterns and improve our website and service offerings.</li>
+        <li><strong>Marketing:</strong> To send promotional materials — only with your explicit consent.</li>
+        <li><strong>Security:</strong> To detect, investigate, and prevent fraudulent transactions.</li>
+      </ul>
+    </section>
+    <hr class="section-divider"/>
+
+    <section class="policy-section" id="s4">
+      <div class="section-header"><div class="section-num">04</div><span class="section-icon">🤝</span><h2>Sharing of Information</h2></div>
+      <p>We do not sell, trade, or rent your personal information to third parties. We may share your information only in these limited circumstances:</p>
+      <ul>
+        <li><strong>Regulatory Authorities:</strong> Government bodies, electricity regulatory commissions (CERC, SERCs), and grid operators.</li>
+        <li><strong>Service Partners:</strong> Third-party auditors, verification agencies, and carbon registry bodies.</li>
+        <li><strong>Legal Obligations:</strong> When required by law, court order, or government authority.</li>
+        <li><strong>Business Transfers:</strong> In the event of a merger, acquisition, or asset sale.</li>
+      </ul>
+    </section>
+    <hr class="section-divider"/>
+
+    <section class="policy-section" id="s5">
+      <div class="section-header"><div class="section-num">05</div><span class="section-icon">🍪</span><h2>Cookies &amp; Tracking Technologies</h2></div>
+      <p>Our website uses cookies and similar tracking technologies to improve your browsing experience. We use essential, analytics, preference, and marketing cookies. You can control cookies through your browser settings.</p>
+    </section>
+    <hr class="section-divider"/>
+
+    <section class="policy-section" id="s6">
+      <div class="section-header"><div class="section-num">06</div><span class="section-icon">🔒</span><h2>Data Security</h2></div>
+      <ul>
+        <li>SSL/TLS encryption for all data transmitted through our website</li>
+        <li>Restricted access to personal data on a need-to-know basis</li>
+        <li>Regular security audits and vulnerability assessments</li>
+        <li>Secure cloud infrastructure with access controls and audit logs</li>
+      </ul>
+      <div class="info-box"><strong>Important:</strong> No method of transmission over the Internet is 100% secure. If you believe your interaction is no longer secure, contact us immediately at <strong>privacy@powerix.in</strong>.</div>
+    </section>
+    <hr class="section-divider"/>
+
+    <section class="policy-section" id="s7">
+      <div class="section-header"><div class="section-num">07</div><span class="section-icon">🗂️</span><h2>Data Retention</h2></div>
+      <ul>
+        <li><strong>Client Records:</strong> Retained for 7 years following end of service engagement.</li>
+        <li><strong>Enquiry / Contact Data:</strong> Retained for 2 years from date of last interaction.</li>
+        <li><strong>Website Analytics:</strong> Identifiable data deleted after 26 months.</li>
+        <li><strong>Marketing Preferences:</strong> Retained until you withdraw consent.</li>
+      </ul>
+    </section>
+    <hr class="section-divider"/>
+
+    <section class="policy-section" id="s8">
+      <div class="section-header"><div class="section-num">08</div><span class="section-icon">⚖️</span><h2>Your Rights</h2></div>
+      <ol>
+        <li><strong>Right to Access:</strong> Request a copy of the personal data we hold about you.</li>
+        <li><strong>Right to Correction:</strong> Request correction of inaccurate or incomplete data.</li>
+        <li><strong>Right to Erasure:</strong> Request deletion of your personal data.</li>
+        <li><strong>Right to Withdraw Consent:</strong> Withdraw consent for processing at any time.</li>
+        <li><strong>Right to Grievance Redressal:</strong> Lodge a complaint with our Data Protection Officer.</li>
+      </ol>
+    </section>
+    <hr class="section-divider"/>
+
+    <section class="policy-section" id="s9">
+      <div class="section-header"><div class="section-num">09</div><span class="section-icon">🔗</span><h2>Third-Party Links</h2></div>
+      <p>Our website may contain links to third-party websites. These sites have their own privacy policies and we do not accept responsibility for their policies or processing of your personal information.</p>
+    </section>
+    <hr class="section-divider"/>
+
+    <section class="policy-section" id="s10">
+      <div class="section-header"><div class="section-num">10</div><span class="section-icon">👶</span><h2>Children's Privacy</h2></div>
+      <p>Our services are intended for business professionals and are not directed at individuals under the age of 18. We do not knowingly collect personal information from children.</p>
+    </section>
+    <hr class="section-divider"/>
+
+    <section class="policy-section" id="s11">
+      <div class="section-header"><div class="section-num">11</div><span class="section-icon">🔄</span><h2>Changes to This Policy</h2></div>
+      <p>We may update this Privacy Policy from time to time. When we make material changes, we will update the "Last Updated" date and notify registered users via email where feasible.</p>
+    </section>
+    <hr class="section-divider"/>
+
+    <section class="policy-section" id="s12">
+      <div class="section-header"><div class="section-num">12</div><span class="section-icon">📬</span><h2>Contact Us</h2></div>
+      <p>If you have any questions regarding this Privacy Policy, please contact our Data Protection Officer:</p>
+      <div class="contact-card">
+        <h4>Powerix – Data Protection Officer</h4>
+        <div class="contact-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3db54a" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>Powerix Energy Solutions Pvt. Ltd., Hyderabad, Telangana, India</div>
+        <div class="contact-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3db54a" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:privacy@powerix.in">privacy@powerix.in</a> &nbsp;|&nbsp; <a href="mailto:dpo@powerix.in">dpo@powerix.in</a></div>
+        <div class="contact-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3db54a" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81"/></svg>+91 9000000000 &nbsp;·&nbsp; Response time: within 30 business days</div>
+      </div>
+    </section>
+  </article>
+</div>
+
+<footer>&copy; 2025 <span>Powerix</span> Energy Solutions Pvt. Ltd. All rights reserved.</footer>
+<a class="wa-float" href="https://wa.me/919000000000" target="_blank"><svg width="28" height="28" viewBox="0 0 32 32" fill="white"><path d="M16 2C8.268 2 2 8.268 2 16c0 2.478.677 4.797 1.854 6.787L2 30l7.404-1.822A13.94 13.94 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2z"/></svg></a>
+</body>
+</html>
